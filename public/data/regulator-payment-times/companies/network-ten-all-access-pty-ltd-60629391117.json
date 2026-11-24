@@ -6,8 +6,40 @@
   "industryDivision": "Information Media and Telecommunications",
   "industrySlug": "information-media-and-telecommunications",
   "industrySubdivision": "Broadcasting (except internet)",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20014367",
+      "acnArbn": "629391117",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 45,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 51,
+      "payments31To60Days": 34,
+      "paymentsMoreThan60Days": 15,
+      "industrySubdivision": "Broadcasting (except internet)",
+      "industryDivision": "Information Media and Telecommunications",
+      "submittedDate": "2026-09-27",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2682,
+        "count": 2794,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 68,
+        "count": 71,
+        "percentile": 4.3
+      }
+    },
     {
       "reportId": "PTR20009362",
       "acnArbn": "629391117",
@@ -30,12 +62,12 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2912,
-        "count": 3050,
-        "percentile": 4.5
+        "rank": 3010,
+        "count": 3151,
+        "percentile": 4.4
       },
       "industryP95Position": {
-        "rank": 68,
+        "rank": 69,
         "count": 74,
         "percentile": 6.8
       }

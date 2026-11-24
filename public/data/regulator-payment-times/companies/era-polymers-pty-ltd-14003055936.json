@@ -1,0 +1,108 @@
+{
+  "slug": "era-polymers-pty-ltd-14003055936",
+  "businessName": "ERA POLYMERS PTY LTD",
+  "abn": "14003055936",
+  "acnArbn": "003055936",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Polymer product and rubber product mfg",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20015904",
+      "acnArbn": "003055936",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.38,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 62,
+      "payments30DaysOrLess": 44.59,
+      "payments31To60Days": 44.37,
+      "paymentsMoreThan60Days": 11.04,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-10-20",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2160,
+        "count": 3151,
+        "percentile": 29.9
+      },
+      "industryP95Position": {
+        "rank": 211,
+        "count": 424,
+        "percentile": 48.2
+      }
+    },
+    {
+      "reportId": "PTR20015903",
+      "acnArbn": "003055936",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.45,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 53,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 49.07,
+      "payments31To60Days": 42.06,
+      "paymentsMoreThan60Days": 8.88,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-10-20",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2036,
+        "count": 3052,
+        "percentile": 32
+      },
+      "industryP95Position": {
+        "rank": 200,
+        "count": 407,
+        "percentile": 48.8
+      }
+    },
+    {
+      "reportId": "PTR20014791",
+      "acnArbn": "003055936",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.38,
+      "medianPaymentTimeDays": 39,
+      "p80PaymentTimeDays": 58,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 38.69,
+      "payments31To60Days": 43.8,
+      "paymentsMoreThan60Days": 17.52,
+      "industrySubdivision": "Polymer product and rubber product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-10-20",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1760,
+        "count": 2639,
+        "percentile": 31.8
+      },
+      "industryP95Position": {
+        "rank": 175,
+        "count": 341,
+        "percentile": 47.6
+      }
+    }
+  ]
+}

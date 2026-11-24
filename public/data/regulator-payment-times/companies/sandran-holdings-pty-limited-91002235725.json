@@ -1,0 +1,140 @@
+{
+  "slug": "sandran-holdings-pty-limited-91002235725",
+  "businessName": "SANDRAN HOLDINGS PTY. LIMITED",
+  "abn": "91002235725",
+  "acnArbn": "002235725",
+  "industryDivision": "Rental, Hiring and Real Estate Services",
+  "industrySlug": "rental-hiring-and-real-estate-services",
+  "industrySubdivision": "Property operators and real estate services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015464",
+      "acnArbn": "002235725",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 393,
+        "count": 2794,
+        "percentile": 82.6
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 67,
+        "percentile": 81.8
+      }
+    },
+    {
+      "reportId": "PTR20015461",
+      "acnArbn": "002235725",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 405,
+        "count": 3151,
+        "percentile": 83.7
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 73,
+        "percentile": 77.8
+      }
+    },
+    {
+      "reportId": "PTR20015391",
+      "acnArbn": "002235725",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 364,
+        "count": 3052,
+        "percentile": 85
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 66,
+        "percentile": 78.5
+      }
+    },
+    {
+      "reportId": "PTR20015225",
+      "acnArbn": "002235725",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 98,
+      "payments31To60Days": 2,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Property operators and real estate services",
+      "industryDivision": "Rental, Hiring and Real Estate Services",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 345,
+        "count": 2639,
+        "percentile": 83.6
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 58,
+        "percentile": 77.2
+      }
+    }
+  ]
+}

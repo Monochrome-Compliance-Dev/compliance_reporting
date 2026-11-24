@@ -8,8 +8,8 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 60,
-      "averageP95PaymentTimeDays": 51.9,
+      "reportingEntityCount": 62,
+      "averageP95PaymentTimeDays": 52.3,
       "medianP95PaymentTimeDays": 47.5,
       "minimumP95PaymentTimeDays": 10,
       "maximumP95PaymentTimeDays": 124
@@ -20,7 +20,7 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "reportingEntityCount": 71,
-      "averageP95PaymentTimeDays": 54.9,
+      "averageP95PaymentTimeDays": 54.1,
       "medianP95PaymentTimeDays": 49,
       "minimumP95PaymentTimeDays": 14,
       "maximumP95PaymentTimeDays": 136
@@ -31,8 +31,8 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "reportingEntityCount": 74,
-      "averageP95PaymentTimeDays": 55.4,
-      "medianP95PaymentTimeDays": 49.5,
+      "averageP95PaymentTimeDays": 54.6,
+      "medianP95PaymentTimeDays": 48.5,
       "minimumP95PaymentTimeDays": 14,
       "maximumP95PaymentTimeDays": 132
     },
@@ -41,11 +41,11 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 35,
-      "averageP95PaymentTimeDays": 52.1,
-      "medianP95PaymentTimeDays": 55,
+      "reportingEntityCount": 71,
+      "averageP95PaymentTimeDays": 56.8,
+      "medianP95PaymentTimeDays": 53,
       "minimumP95PaymentTimeDays": 15,
-      "maximumP95PaymentTimeDays": 136
+      "maximumP95PaymentTimeDays": 278
     }
   ],
   "companies": [
@@ -56,7 +56,7 @@
       "p95PaymentTimeDays": 15,
       "industryP95Position": {
         "rank": 1,
-        "count": 35,
+        "count": 71,
         "percentile": 100
       }
     },
@@ -67,8 +67,8 @@
       "p95PaymentTimeDays": 17,
       "industryP95Position": {
         "rank": 2,
-        "count": 35,
-        "percentile": 97.1
+        "count": 71,
+        "percentile": 98.6
       }
     },
     {
@@ -78,8 +78,19 @@
       "p95PaymentTimeDays": 25,
       "industryP95Position": {
         "rank": 3,
-        "count": 35,
-        "percentile": 94.1
+        "count": 71,
+        "percentile": 97.1
+      }
+    },
+    {
+      "businessName": "LAND SERVICES WA HOLDINGS PTY LIMITED",
+      "abn": "75635079873",
+      "slug": "land-services-wa-holdings-pty-limited-75635079873",
+      "p95PaymentTimeDays": 28,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 71,
+        "percentile": 92.9
       }
     },
     {
@@ -89,8 +100,8 @@
       "p95PaymentTimeDays": 28,
       "industryP95Position": {
         "rank": 4,
-        "count": 35,
-        "percentile": 88.2
+        "count": 71,
+        "percentile": 92.9
       }
     },
     {
@@ -100,8 +111,85 @@
       "p95PaymentTimeDays": 28,
       "industryP95Position": {
         "rank": 4,
-        "count": 35,
-        "percentile": 88.2
+        "count": 71,
+        "percentile": 92.9
+      }
+    },
+    {
+      "businessName": "PENGUIN RANDOM HOUSE AUSTRALIA PTY LTD",
+      "abn": "28004815703",
+      "slug": "penguin-random-house-australia-pty-ltd-28004815703",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 71,
+        "percentile": 91.4
+      }
+    },
+    {
+      "businessName": "DOMAIN TOPCO PTY LIMITED",
+      "abn": "15684352298",
+      "slug": "domain-topco-pty-limited-15684352298",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 71,
+        "percentile": 84.3
+      }
+    },
+    {
+      "businessName": "INDARA CORPORATION PTY LTD",
+      "abn": "59643875165",
+      "slug": "indara-corporation-pty-ltd-59643875165",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 71,
+        "percentile": 84.3
+      }
+    },
+    {
+      "businessName": "MACQUARIE TECHNOLOGY GROUP LIMITED",
+      "abn": "72056712228",
+      "slug": "macquarie-technology-group-limited-72056712228",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 71,
+        "percentile": 84.3
+      }
+    },
+    {
+      "businessName": "Visual Domain Australia Pty Ltd",
+      "abn": "28140600415",
+      "slug": "visual-domain-australia-pty-ltd-28140600415",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 71,
+        "percentile": 84.3
+      }
+    },
+    {
+      "businessName": "VOYAGE AUSTRALIA HOLDINGS PTY LIMITED",
+      "abn": "31648328803",
+      "slug": "voyage-australia-holdings-pty-limited-31648328803",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 71,
+        "percentile": 84.3
+      }
+    },
+    {
+      "businessName": "FREQUENCY INFRASTRUCTURE AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "27136262952",
+      "slug": "frequency-infrastructure-australia-holdings-pty-ltd-27136262952",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 71,
+        "percentile": 82.9
       }
     },
     {
@@ -110,9 +198,9 @@
       "slug": "appen-limited-60138878298",
       "p95PaymentTimeDays": 32,
       "industryP95Position": {
-        "rank": 6,
-        "count": 35,
-        "percentile": 82.4
+        "rank": 14,
+        "count": 71,
+        "percentile": 78.6
       }
     },
     {
@@ -121,9 +209,20 @@
       "slug": "news-corp-australia-pty-limited-73163992774",
       "p95PaymentTimeDays": 32,
       "industryP95Position": {
-        "rank": 6,
-        "count": 35,
-        "percentile": 82.4
+        "rank": 14,
+        "count": 71,
+        "percentile": 78.6
+      }
+    },
+    {
+      "businessName": "NOVA ENTERTAINMENT RADIO INVESTMENTS PTY LIMITED",
+      "abn": "64603324929",
+      "slug": "nova-entertainment-radio-investments-pty-limited-64603324929",
+      "p95PaymentTimeDays": 32,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 71,
+        "percentile": 78.6
       }
     },
     {
@@ -132,9 +231,9 @@
       "slug": "loyalty-pacific-pty-ltd-82057931334",
       "p95PaymentTimeDays": 33,
       "industryP95Position": {
-        "rank": 8,
-        "count": 35,
-        "percentile": 79.4
+        "rank": 17,
+        "count": 71,
+        "percentile": 77.1
       }
     },
     {
@@ -143,9 +242,31 @@
       "slug": "akamai-technologies-netherlands-b-v-52115435955",
       "p95PaymentTimeDays": 35,
       "industryP95Position": {
-        "rank": 9,
-        "count": 35,
-        "percentile": 76.5
+        "rank": 18,
+        "count": 71,
+        "percentile": 72.9
+      }
+    },
+    {
+      "businessName": "BSA LIMITED",
+      "abn": "50088412748",
+      "slug": "bsa-limited-50088412748",
+      "p95PaymentTimeDays": 35,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 71,
+        "percentile": 72.9
+      }
+    },
+    {
+      "businessName": "NBN CO LIMITED",
+      "abn": "86136533741",
+      "slug": "nbn-co-limited-86136533741",
+      "p95PaymentTimeDays": 35,
+      "industryP95Position": {
+        "rank": 18,
+        "count": 71,
+        "percentile": 72.9
       }
     },
     {
@@ -154,9 +275,9 @@
       "slug": "industrial-light-and-magic-australia-pty-limited-46145485767",
       "p95PaymentTimeDays": 36,
       "industryP95Position": {
-        "rank": 10,
-        "count": 35,
-        "percentile": 73.5
+        "rank": 21,
+        "count": 71,
+        "percentile": 71.4
       }
     },
     {
@@ -165,9 +286,9 @@
       "slug": "aussie-broadband-limited-29132090192",
       "p95PaymentTimeDays": 37,
       "industryP95Position": {
-        "rank": 11,
-        "count": 35,
-        "percentile": 70.6
+        "rank": 22,
+        "count": 71,
+        "percentile": 70
       }
     },
     {
@@ -176,9 +297,9 @@
       "slug": "bloomberg-australia-pty-ltd-47622777851",
       "p95PaymentTimeDays": 40,
       "industryP95Position": {
-        "rank": 12,
-        "count": 35,
-        "percentile": 67.6
+        "rank": 23,
+        "count": 71,
+        "percentile": 68.6
       }
     },
     {
@@ -187,9 +308,20 @@
       "slug": "myob-group-co-pty-ltd-23630725825",
       "p95PaymentTimeDays": 41,
       "industryP95Position": {
-        "rank": 13,
-        "count": 35,
-        "percentile": 64.7
+        "rank": 24,
+        "count": 71,
+        "percentile": 67.1
+      }
+    },
+    {
+      "businessName": "RELX HOLDINGS AUSTRALIA PTY LTD",
+      "abn": "19004323166",
+      "slug": "relx-holdings-australia-pty-ltd-19004323166",
+      "p95PaymentTimeDays": 42,
+      "industryP95Position": {
+        "rank": 25,
+        "count": 71,
+        "percentile": 65.7
       }
     },
     {
@@ -198,9 +330,75 @@
       "slug": "equinix-australia-pty-limited-25092807264",
       "p95PaymentTimeDays": 43,
       "industryP95Position": {
-        "rank": 14,
-        "count": 35,
-        "percentile": 61.8
+        "rank": 26,
+        "count": 71,
+        "percentile": 64.3
+      }
+    },
+    {
+      "businessName": "NXE AUSTRALIA PTY LIMITED",
+      "abn": "85625190990",
+      "slug": "nxe-australia-pty-limited-85625190990",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 27,
+        "count": 71,
+        "percentile": 61.4
+      }
+    },
+    {
+      "businessName": "PEARSON AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "62103243858",
+      "slug": "pearson-australia-holdings-pty-ltd-62103243858",
+      "p95PaymentTimeDays": 45,
+      "industryP95Position": {
+        "rank": 27,
+        "count": 71,
+        "percentile": 61.4
+      }
+    },
+    {
+      "businessName": "NETFLIX AUSTRALIA PTY LTD",
+      "abn": "81601296771",
+      "slug": "netflix-australia-pty-ltd-81601296771",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 29,
+        "count": 71,
+        "percentile": 58.6
+      }
+    },
+    {
+      "businessName": "THE AUSTRALIA TRAFFIC NETWORK PTY LIMITED",
+      "abn": "53078993736",
+      "slug": "the-australia-traffic-network-pty-limited-53078993736",
+      "p95PaymentTimeDays": 46,
+      "industryP95Position": {
+        "rank": 29,
+        "count": 71,
+        "percentile": 58.6
+      }
+    },
+    {
+      "businessName": "ARE MEDIA HOLDCO PTY LTD",
+      "abn": "30649385044",
+      "slug": "are-media-holdco-pty-ltd-30649385044",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 31,
+        "count": 71,
+        "percentile": 57.1
+      }
+    },
+    {
+      "businessName": "ATLASSIAN AUSTRALIA 1 PTY LTD",
+      "abn": "98166799542",
+      "slug": "atlassian-australia-1-pty-ltd-98166799542",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 71,
+        "percentile": 54.3
       }
     },
     {
@@ -209,9 +407,9 @@
       "slug": "navman-wireless-australia-pty-limited-50123981457",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 15,
-        "count": 35,
-        "percentile": 58.8
+        "rank": 32,
+        "count": 71,
+        "percentile": 54.3
       }
     },
     {
@@ -220,9 +418,31 @@
       "slug": "bbc-studios-australia-holdings-pty-ltd-85127624104",
       "p95PaymentTimeDays": 51,
       "industryP95Position": {
-        "rank": 16,
-        "count": 35,
-        "percentile": 55.9
+        "rank": 34,
+        "count": 71,
+        "percentile": 51.4
+      }
+    },
+    {
+      "businessName": "HARPERCOLLINS PUBLISHERS AUSTRALIA PTY. LIMITED",
+      "abn": "36009913517",
+      "slug": "harpercollins-publishers-australia-pty-limited-36009913517",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 34,
+        "count": 71,
+        "percentile": 51.4
+      }
+    },
+    {
+      "businessName": "GOOGLE CLOUD AUSTRALIA PTY LTD",
+      "abn": "68610798466",
+      "slug": "google-cloud-australia-pty-ltd-68610798466",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 36,
+        "count": 71,
+        "percentile": 50
       }
     },
     {
@@ -231,9 +451,9 @@
       "slug": "facebook-australia-pty-ltd-83134012543",
       "p95PaymentTimeDays": 54,
       "industryP95Position": {
-        "rank": 17,
-        "count": 35,
-        "percentile": 52.9
+        "rank": 37,
+        "count": 71,
+        "percentile": 48.6
       }
     },
     {
@@ -242,9 +462,9 @@
       "slug": "cdm-australia-pty-ltd-68009592965",
       "p95PaymentTimeDays": 55,
       "industryP95Position": {
-        "rank": 18,
-        "count": 35,
-        "percentile": 50
+        "rank": 38,
+        "count": 71,
+        "percentile": 47.1
       }
     },
     {
@@ -253,9 +473,9 @@
       "slug": "message4u-pty-ltd-16095453062",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 19,
-        "count": 35,
-        "percentile": 44.1
+        "rank": 39,
+        "count": 71,
+        "percentile": 44.3
       }
     },
     {
@@ -264,9 +484,9 @@
       "slug": "snowflake-computing-pty-ltd-50624134587",
       "p95PaymentTimeDays": 56,
       "industryP95Position": {
-        "rank": 19,
-        "count": 35,
-        "percentile": 44.1
+        "rank": 39,
+        "count": 71,
+        "percentile": 44.3
       }
     },
     {
@@ -275,9 +495,9 @@
       "slug": "cdc-group-holdings-pty-ltd-67612332073",
       "p95PaymentTimeDays": 57,
       "industryP95Position": {
-        "rank": 21,
-        "count": 35,
-        "percentile": 38.2
+        "rank": 41,
+        "count": 71,
+        "percentile": 41.4
       }
     },
     {
@@ -286,9 +506,31 @@
       "slug": "verizon-australia-pty-limited-62081001194",
       "p95PaymentTimeDays": 57,
       "industryP95Position": {
-        "rank": 21,
-        "count": 35,
-        "percentile": 38.2
+        "rank": 41,
+        "count": 71,
+        "percentile": 41.4
+      }
+    },
+    {
+      "businessName": "CONECTIV PTY LIMITED",
+      "abn": "23000978343",
+      "slug": "conectiv-pty-limited-23000978343",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 43,
+        "count": 71,
+        "percentile": 37.1
+      }
+    },
+    {
+      "businessName": "ENDAVA AUSTRALIA PTY LTD",
+      "abn": "90642165740",
+      "slug": "endava-australia-pty-ltd-90642165740",
+      "p95PaymentTimeDays": 58,
+      "industryP95Position": {
+        "rank": 43,
+        "count": 71,
+        "percentile": 37.1
       }
     },
     {
@@ -297,9 +539,9 @@
       "slug": "nec-australia-pty-ltd-86001217527",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 23,
-        "count": 35,
-        "percentile": 35.3
+        "rank": 43,
+        "count": 71,
+        "percentile": 37.1
       }
     },
     {
@@ -308,9 +550,9 @@
       "slug": "jcdecaux-australia-holdings-pty-ltd-50627855323",
       "p95PaymentTimeDays": 59,
       "industryP95Position": {
-        "rank": 24,
-        "count": 35,
-        "percentile": 32.4
+        "rank": 46,
+        "count": 71,
+        "percentile": 35.7
       }
     },
     {
@@ -319,9 +561,9 @@
       "slug": "cps-technology-and-infrastructure-pty-ltd-48148905159",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 25,
-        "count": 35,
-        "percentile": 23.5
+        "rank": 47,
+        "count": 71,
+        "percentile": 31.4
       }
     },
     {
@@ -330,9 +572,9 @@
       "slug": "genesys-cloud-services-pty-ltd-80077375887",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 25,
-        "count": 35,
-        "percentile": 23.5
+        "rank": 47,
+        "count": 71,
+        "percentile": 31.4
       }
     },
     {
@@ -341,20 +583,42 @@
       "slug": "the-walt-disney-company-australia-pty-limited-30054610025",
       "p95PaymentTimeDays": 60,
       "industryP95Position": {
-        "rank": 25,
-        "count": 35,
-        "percentile": 23.5
+        "rank": 47,
+        "count": 71,
+        "percentile": 31.4
       }
     },
     {
-      "businessName": "NETFLIX AUSTRALIA PTY LTD",
-      "abn": "81601296771",
-      "slug": "netflix-australia-pty-ltd-81601296771",
+      "businessName": "IRON MOUNTAIN ACQUISITION HOLDINGS PTY LTD",
+      "abn": "20608590521",
+      "slug": "iron-mountain-acquisition-holdings-pty-ltd-20608590521",
+      "p95PaymentTimeDays": 61,
+      "industryP95Position": {
+        "rank": 50,
+        "count": 71,
+        "percentile": 30
+      }
+    },
+    {
+      "businessName": "AMAZON CORPORATE SERVICES PTY LTD",
+      "abn": "95082931600",
+      "slug": "amazon-corporate-services-pty-ltd-95082931600",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 51,
+        "count": 71,
+        "percentile": 28.6
+      }
+    },
+    {
+      "businessName": "ETHAN GLOBAL PTY LTD",
+      "abn": "93099503456",
+      "slug": "ethan-global-pty-ltd-93099503456",
       "p95PaymentTimeDays": 63,
       "industryP95Position": {
-        "rank": 28,
-        "count": 35,
-        "percentile": 20.6
+        "rank": 52,
+        "count": 71,
+        "percentile": 27.1
       }
     },
     {
@@ -363,9 +627,20 @@
       "slug": "nokia-solutions-and-networks-australia-pty-ltd-74122172365",
       "p95PaymentTimeDays": 64,
       "industryP95Position": {
-        "rank": 29,
-        "count": 35,
-        "percentile": 14.7
+        "rank": 53,
+        "count": 71,
+        "percentile": 22.9
+      }
+    },
+    {
+      "businessName": "SUPERLOOP LIMITED",
+      "abn": "96169263094",
+      "slug": "superloop-limited-96169263094",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 53,
+        "count": 71,
+        "percentile": 22.9
       }
     },
     {
@@ -374,9 +649,20 @@
       "slug": "warner-bros-entertainment-australia-pty-limited-70003773411",
       "p95PaymentTimeDays": 64,
       "industryP95Position": {
-        "rank": 29,
-        "count": 35,
-        "percentile": 14.7
+        "rank": 53,
+        "count": 71,
+        "percentile": 22.9
+      }
+    },
+    {
+      "businessName": "REFINITIV AUSTRALIA PTY LIMITED",
+      "abn": "70002834237",
+      "slug": "refinitiv-australia-pty-limited-70002834237",
+      "p95PaymentTimeDays": 65,
+      "industryP95Position": {
+        "rank": 56,
+        "count": 71,
+        "percentile": 21.4
       }
     },
     {
@@ -385,9 +671,42 @@
       "slug": "singapore-telecom-australia-investments-pty-limited-69096686190",
       "p95PaymentTimeDays": 69,
       "industryP95Position": {
-        "rank": 31,
-        "count": 35,
-        "percentile": 11.8
+        "rank": 57,
+        "count": 71,
+        "percentile": 20
+      }
+    },
+    {
+      "businessName": "MOTOROLA SOLUTIONS AUSTRALIA PTY. LIMITED",
+      "abn": "16004742312",
+      "slug": "motorola-solutions-australia-pty-limited-16004742312",
+      "p95PaymentTimeDays": 70,
+      "industryP95Position": {
+        "rank": 58,
+        "count": 71,
+        "percentile": 18.6
+      }
+    },
+    {
+      "businessName": "MBC TOPCO PTY LTD",
+      "abn": "80658690101",
+      "slug": "mbc-topco-pty-ltd-80658690101",
+      "p95PaymentTimeDays": 71,
+      "industryP95Position": {
+        "rank": 59,
+        "count": 71,
+        "percentile": 17.1
+      }
+    },
+    {
+      "businessName": "ADYEN AUSTRALIA PTY LIMITED",
+      "abn": "55162682411",
+      "slug": "adyen-australia-pty-limited-55162682411",
+      "p95PaymentTimeDays": 74,
+      "industryP95Position": {
+        "rank": 60,
+        "count": 71,
+        "percentile": 15.7
       }
     },
     {
@@ -396,9 +715,31 @@
       "slug": "wiley-publishing-australia-pty-ltd-48085710952",
       "p95PaymentTimeDays": 75,
       "industryP95Position": {
-        "rank": 32,
-        "count": 35,
-        "percentile": 8.8
+        "rank": 61,
+        "count": 71,
+        "percentile": 14.3
+      }
+    },
+    {
+      "businessName": "FINDER.COM PTY LTD",
+      "abn": "69125761480",
+      "slug": "finder-com-pty-ltd-69125761480",
+      "p95PaymentTimeDays": 76,
+      "industryP95Position": {
+        "rank": 62,
+        "count": 71,
+        "percentile": 12.9
+      }
+    },
+    {
+      "businessName": "MULTI MARKET SERVICES AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "50000026228",
+      "slug": "multi-market-services-australia-holdings-pty-ltd-50000026228",
+      "p95PaymentTimeDays": 78,
+      "industryP95Position": {
+        "rank": 63,
+        "count": 71,
+        "percentile": 11.4
       }
     },
     {
@@ -407,9 +748,9 @@
       "slug": "netapp-australia-pty-ltd-14092499431",
       "p95PaymentTimeDays": 89,
       "industryP95Position": {
-        "rank": 33,
-        "count": 35,
-        "percentile": 5.9
+        "rank": 64,
+        "count": 71,
+        "percentile": 10
       }
     },
     {
@@ -418,8 +759,52 @@
       "slug": "cisco-systems-australia-pty-limited-52050332940",
       "p95PaymentTimeDays": 90,
       "industryP95Position": {
-        "rank": 34,
-        "count": 35,
+        "rank": 65,
+        "count": 71,
+        "percentile": 8.6
+      }
+    },
+    {
+      "businessName": "TEN NETWORK HOLDINGS LIMITED",
+      "abn": "14081327068",
+      "slug": "ten-network-holdings-limited-14081327068",
+      "p95PaymentTimeDays": 96,
+      "industryP95Position": {
+        "rank": 66,
+        "count": 71,
+        "percentile": 7.1
+      }
+    },
+    {
+      "businessName": "TELERIC PROPRIETARY LIMITED",
+      "abn": "90004284664",
+      "slug": "teleric-proprietary-limited-90004284664",
+      "p95PaymentTimeDays": 97,
+      "industryP95Position": {
+        "rank": 67,
+        "count": 71,
+        "percentile": 5.7
+      }
+    },
+    {
+      "businessName": "NETWORK TEN ALL ACCESS PTY LTD",
+      "abn": "60629391117",
+      "slug": "network-ten-all-access-pty-ltd-60629391117",
+      "p95PaymentTimeDays": 105,
+      "industryP95Position": {
+        "rank": 68,
+        "count": 71,
+        "percentile": 4.3
+      }
+    },
+    {
+      "businessName": "READING ENTERTAINMENT AUSTRALIA PTY LIMITED",
+      "abn": "12070893908",
+      "slug": "reading-entertainment-australia-pty-limited-12070893908",
+      "p95PaymentTimeDays": 126,
+      "industryP95Position": {
+        "rank": 69,
+        "count": 71,
         "percentile": 2.9
       }
     },
@@ -429,8 +814,19 @@
       "slug": "splunk-services-australia-pty-ltd-51609939817",
       "p95PaymentTimeDays": 136,
       "industryP95Position": {
-        "rank": 35,
-        "count": 35,
+        "rank": 70,
+        "count": 71,
+        "percentile": 1.4
+      }
+    },
+    {
+      "businessName": "THOMSON REUTERS (AUSTRALIA) PTY LTD",
+      "abn": "87058914766",
+      "slug": "thomson-reuters-australia-pty-ltd-87058914766",
+      "p95PaymentTimeDays": 278,
+      "industryP95Position": {
+        "rank": 71,
+        "count": 71,
         "percentile": 0
       }
     }

@@ -1,0 +1,108 @@
+{
+  "slug": "hyundai-movex-co-ltd-74658206994",
+  "businessName": "HYUNDAI MOVEX CO., LTD.",
+  "abn": "74658206994",
+  "acnArbn": "658206994",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Fabricated metal product mfg",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015511",
+      "acnArbn": "658206994",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 16.86,
+      "medianPaymentTimeDays": 17,
+      "p80PaymentTimeDays": 19,
+      "p95PaymentTimeDays": 25,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 223,
+        "count": 2794,
+        "percentile": 91.4
+      },
+      "industryP95Position": {
+        "rank": 11,
+        "count": 359,
+        "percentile": 97.2
+      }
+    },
+    {
+      "reportId": "PTR20015506",
+      "acnArbn": "658206994",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.8,
+      "medianPaymentTimeDays": 19,
+      "p80PaymentTimeDays": 24,
+      "p95PaymentTimeDays": 36,
+      "payments30DaysOrLess": 90.24,
+      "payments31To60Days": 9.76,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 753,
+        "count": 3151,
+        "percentile": 74.7
+      },
+      "industryP95Position": {
+        "rank": 26,
+        "count": 424,
+        "percentile": 93.4
+      }
+    },
+    {
+      "reportId": "PTR20015509",
+      "acnArbn": "658206994",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 19.67,
+      "medianPaymentTimeDays": 22,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 23,
+      "payments30DaysOrLess": 97.83,
+      "payments31To60Days": 2.17,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Fabricated metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 164,
+        "count": 3052,
+        "percentile": 94.1
+      },
+      "industryP95Position": {
+        "rank": 5,
+        "count": 407,
+        "percentile": 99
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "slug": "seasons-investments-holdings-pty-ltd-83633221299",
+  "businessName": "SEASONS INVESTMENTS HOLDINGS PTY LTD",
+  "abn": "83633221299",
+  "acnArbn": "633221299",
+  "industryDivision": "Retail Trade",
+  "industrySlug": "retail-trade",
+  "industrySubdivision": "Food retailing",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20014817",
+      "acnArbn": "633221299",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20.3,
+      "medianPaymentTimeDays": 18,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 72,
+      "payments31To60Days": 27.99,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 646,
+        "count": 2794,
+        "percentile": 75.8
+      },
+      "industryP95Position": {
+        "rank": 38,
+        "count": 208,
+        "percentile": 81.6
+      }
+    },
+    {
+      "reportId": "PTR20013446",
+      "acnArbn": "633221299",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 14,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 87.6,
+      "payments31To60Days": 12.4,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 710,
+        "count": 3151,
+        "percentile": 76.2
+      },
+      "industryP95Position": {
+        "rank": 47,
+        "count": 261,
+        "percentile": 80.8
+      }
+    },
+    {
+      "reportId": "PTR20013434",
+      "acnArbn": "633221299",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 18,
+      "medianPaymentTimeDays": 15,
+      "p80PaymentTimeDays": 31,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 76.95,
+      "payments31To60Days": 23.05,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Food retailing",
+      "industryDivision": "Retail Trade",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 642,
+        "count": 3052,
+        "percentile": 77.7
+      },
+      "industryP95Position": {
+        "rank": 42,
+        "count": 258,
+        "percentile": 83.7
+      }
+    }
+  ]
+}

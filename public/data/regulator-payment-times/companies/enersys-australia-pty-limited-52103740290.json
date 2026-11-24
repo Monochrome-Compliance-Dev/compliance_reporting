@@ -1,0 +1,108 @@
+{
+  "slug": "enersys-australia-pty-limited-52103740290",
+  "businessName": "ENERSYS AUSTRALIA PTY LIMITED",
+  "abn": "52103740290",
+  "acnArbn": "103740290",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Transport equipment mfg",
+  "latestReportingPeriodEndDate": "2026-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20013280",
+      "acnArbn": "103740290",
+      "reportingPeriodStartDate": "2025-09-30",
+      "reportingPeriodEndDate": "2026-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.28,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 42,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 64.13,
+      "payments31To60Days": 32.57,
+      "paymentsMoreThan60Days": 3.3,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-15",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1539,
+        "count": 2794,
+        "percentile": 41.3
+      },
+      "industryP95Position": {
+        "rank": 124,
+        "count": 359,
+        "percentile": 60.1
+      }
+    },
+    {
+      "reportId": "PTR20013278",
+      "acnArbn": "103740290",
+      "reportingPeriodStartDate": "2025-03-31",
+      "reportingPeriodEndDate": "2025-09-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.19,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 65.3,
+      "payments31To60Days": 31.1,
+      "paymentsMoreThan60Days": 3.6,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-15",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 1744,
+        "count": 3151,
+        "percentile": 41.7
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 424,
+        "percentile": 62.2
+      }
+    },
+    {
+      "reportId": "PTR20012683",
+      "acnArbn": "103740290",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 26.69,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 63.95,
+      "payments31To60Days": 31.7,
+      "paymentsMoreThan60Days": 4.34,
+      "industrySubdivision": "Transport equipment mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-15",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1751,
+        "count": 3052,
+        "percentile": 40.2
+      },
+      "industryP95Position": {
+        "rank": 156,
+        "count": 407,
+        "percentile": 59.6
+      }
+    }
+  ]
+}

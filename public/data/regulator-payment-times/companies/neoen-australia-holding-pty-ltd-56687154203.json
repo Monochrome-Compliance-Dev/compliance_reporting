@@ -1,0 +1,44 @@
+{
+  "slug": "neoen-australia-holding-pty-ltd-56687154203",
+  "businessName": "NEOEN AUSTRALIA HOLDING PTY LTD",
+  "abn": "56687154203",
+  "acnArbn": "687154203",
+  "industryDivision": "Electricity, Gas, Water and Waste Services",
+  "industrySlug": "electricity-gas-water-and-waste-services",
+  "industrySubdivision": "Electricity supply",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015874",
+      "acnArbn": "687154203",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 32.23,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 48,
+      "p95PaymentTimeDays": 69,
+      "payments30DaysOrLess": 65.08,
+      "payments31To60Days": 26.98,
+      "paymentsMoreThan60Days": 7.94,
+      "industrySubdivision": "Electricity supply",
+      "industryDivision": "Electricity, Gas, Water and Waste Services",
+      "submittedDate": "2026-10-19",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2197,
+        "count": 2794,
+        "percentile": 20.4
+      },
+      "industryP95Position": {
+        "rank": 86,
+        "count": 92,
+        "percentile": 5.5
+      }
+    }
+  ]
+}

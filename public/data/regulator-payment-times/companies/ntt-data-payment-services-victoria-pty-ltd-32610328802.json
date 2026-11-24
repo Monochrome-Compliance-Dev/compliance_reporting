@@ -1,0 +1,44 @@
+{
+  "slug": "ntt-data-payment-services-victoria-pty-ltd-32610328802",
+  "businessName": "NTT DATA PAYMENT SERVICES VICTORIA PTY LTD",
+  "abn": "32610328802",
+  "acnArbn": "610328802",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySlug": "professional-scientific-and-technical-services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2025-03-30",
+  "reports": [
+    {
+      "reportId": "PTR20014155",
+      "acnArbn": "610328802",
+      "reportingPeriodStartDate": "2024-09-30",
+      "reportingPeriodEndDate": "2025-03-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 49,
+      "medianPaymentTimeDays": 49,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 49,
+      "payments30DaysOrLess": 0,
+      "payments31To60Days": 100,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-24",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 1159,
+        "count": 3052,
+        "percentile": 60.9
+      },
+      "industryP95Position": {
+        "rank": 96,
+        "count": 235,
+        "percentile": 58.5
+      }
+    }
+  ]
+}

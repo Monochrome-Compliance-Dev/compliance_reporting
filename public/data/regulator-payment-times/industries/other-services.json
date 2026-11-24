@@ -8,9 +8,9 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 22,
-      "averageP95PaymentTimeDays": 52.9,
-      "medianP95PaymentTimeDays": 56.5,
+      "reportingEntityCount": 26,
+      "averageP95PaymentTimeDays": 54.6,
+      "medianP95PaymentTimeDays": 57.5,
       "minimumP95PaymentTimeDays": 8,
       "maximumP95PaymentTimeDays": 120
     },
@@ -19,9 +19,9 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 29,
-      "averageP95PaymentTimeDays": 57.8,
-      "medianP95PaymentTimeDays": 57,
+      "reportingEntityCount": 33,
+      "averageP95PaymentTimeDays": 58.8,
+      "medianP95PaymentTimeDays": 58,
       "minimumP95PaymentTimeDays": 9,
       "maximumP95PaymentTimeDays": 120
     },
@@ -30,34 +30,166 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 28,
-      "averageP95PaymentTimeDays": 48.2,
+      "reportingEntityCount": 33,
+      "averageP95PaymentTimeDays": 49.5,
       "medianP95PaymentTimeDays": 54,
       "minimumP95PaymentTimeDays": 13,
-      "maximumP95PaymentTimeDays": 73
+      "maximumP95PaymentTimeDays": 80
     },
     {
       "reportingCycleId": "2026-H1",
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 7,
-      "averageP95PaymentTimeDays": 58.1,
-      "medianP95PaymentTimeDays": 58,
-      "minimumP95PaymentTimeDays": 44,
+      "reportingEntityCount": 29,
+      "averageP95PaymentTimeDays": 47.4,
+      "medianP95PaymentTimeDays": 51,
+      "minimumP95PaymentTimeDays": 12,
       "maximumP95PaymentTimeDays": 79
     }
   ],
   "companies": [
+    {
+      "businessName": "THE PHARMACY GUILD OF AUSTRALIA",
+      "abn": "84519669143",
+      "slug": "the-pharmacy-guild-of-australia-84519669143",
+      "p95PaymentTimeDays": 12,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 29,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "HOUSING INDUSTRY ASSOCIATION LIMITED",
+      "abn": "99004631752",
+      "slug": "housing-industry-association-limited-99004631752",
+      "p95PaymentTimeDays": 15,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 29,
+        "percentile": 96.4
+      }
+    },
+    {
+      "businessName": "SYNACO GLOBAL RECRUITMENT PTY LTD",
+      "abn": "36157844212",
+      "slug": "synaco-global-recruitment-pty-ltd-36157844212",
+      "p95PaymentTimeDays": 22,
+      "industryP95Position": {
+        "rank": 3,
+        "count": 29,
+        "percentile": 92.9
+      }
+    },
+    {
+      "businessName": "THE ROYAL AUTOMOBILE CLUB OF TASMANIA LIMITED",
+      "abn": "62009475861",
+      "slug": "the-royal-automobile-club-of-tasmania-limited-62009475861",
+      "p95PaymentTimeDays": 24,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 29,
+        "percentile": 89.3
+      }
+    },
+    {
+      "businessName": "CLOUGH WOOD PTY LTD",
+      "abn": "26116355572",
+      "slug": "clough-wood-pty-ltd-26116355572",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 29,
+        "percentile": 82.1
+      }
+    },
+    {
+      "businessName": "ETERNAL AUS HOLDCO LTD",
+      "abn": "84669042782",
+      "slug": "eternal-aus-holdco-ltd-84669042782",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 29,
+        "percentile": 82.1
+      }
+    },
+    {
+      "businessName": "PROPEL FUNERAL PARTNERS LIMITED",
+      "abn": "41616909310",
+      "slug": "propel-funeral-partners-limited-41616909310",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 29,
+        "percentile": 75
+      }
+    },
+    {
+      "businessName": "THE ROYAL AUTOMOBILE CLUB OF QUEENSLAND LIMITED",
+      "abn": "72009660575",
+      "slug": "the-royal-automobile-club-of-queensland-limited-72009660575",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 29,
+        "percentile": 75
+      }
+    },
+    {
+      "businessName": "CORDINA GROUP PTY LTD",
+      "abn": "99635499124",
+      "slug": "cordina-group-pty-ltd-99635499124",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 29,
+        "percentile": 67.9
+      }
+    },
+    {
+      "businessName": "SAFRAN HELICOPTER ENGINES AUSTRALIA PTY LTD",
+      "abn": "49063102198",
+      "slug": "safran-helicopter-engines-australia-pty-ltd-49063102198",
+      "p95PaymentTimeDays": 37,
+      "industryP95Position": {
+        "rank": 9,
+        "count": 29,
+        "percentile": 67.9
+      }
+    },
+    {
+      "businessName": "NATIONAL ROADS AND MOTORISTS' ASSOCIATION LIMITED",
+      "abn": "77000010506",
+      "slug": "national-roads-and-motorists-association-limited-77000010506",
+      "p95PaymentTimeDays": 43,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 29,
+        "percentile": 64.3
+      }
+    },
     {
       "businessName": "CERTIS AUSTRALIA PTY LTD",
       "abn": "51602871287",
       "slug": "certis-australia-pty-ltd-51602871287",
       "p95PaymentTimeDays": 44,
       "industryP95Position": {
-        "rank": 1,
-        "count": 7,
-        "percentile": 100
+        "rank": 12,
+        "count": 29,
+        "percentile": 60.7
+      }
+    },
+    {
+      "businessName": "CHARTERED ACCOUNTANTS AUSTRALIA AND NEW ZEALAND",
+      "abn": "50084642571",
+      "slug": "chartered-accountants-australia-and-new-zealand-50084642571",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 13,
+        "count": 29,
+        "percentile": 57.1
       }
     },
     {
@@ -66,9 +198,42 @@
       "slug": "park24-australia-pty-ltd-58616101341",
       "p95PaymentTimeDays": 50,
       "industryP95Position": {
-        "rank": 2,
-        "count": 7,
-        "percentile": 83.3
+        "rank": 14,
+        "count": 29,
+        "percentile": 53.6
+      }
+    },
+    {
+      "businessName": "ALSCO PTY LIMITED",
+      "abn": "26000435629",
+      "slug": "alsco-pty-limited-26000435629",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 15,
+        "count": 29,
+        "percentile": 50
+      }
+    },
+    {
+      "businessName": "VEHICLE REPAIRHUB PTY LIMITED",
+      "abn": "12632384224",
+      "slug": "vehicle-repairhub-pty-limited-12632384224",
+      "p95PaymentTimeDays": 52,
+      "industryP95Position": {
+        "rank": 16,
+        "count": 29,
+        "percentile": 46.4
+      }
+    },
+    {
+      "businessName": "SPL GROUP HOLDINGS PTY LIMITED",
+      "abn": "18628086466",
+      "slug": "spl-group-holdings-pty-limited-18628086466",
+      "p95PaymentTimeDays": 53,
+      "industryP95Position": {
+        "rank": 17,
+        "count": 29,
+        "percentile": 42.9
       }
     },
     {
@@ -77,9 +242,20 @@
       "slug": "r-g-m-maintenance-pty-ltd-18100509484",
       "p95PaymentTimeDays": 54,
       "industryP95Position": {
-        "rank": 3,
-        "count": 7,
-        "percentile": 66.7
+        "rank": 18,
+        "count": 29,
+        "percentile": 39.3
+      }
+    },
+    {
+      "businessName": "City Holdings (Aus) Pty Ltd",
+      "abn": "33135098636",
+      "slug": "city-holdings-aus-pty-ltd-33135098636",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 29,
+        "percentile": 35.7
       }
     },
     {
@@ -88,9 +264,9 @@
       "slug": "ge-power-au-holdings-pty-ltd-29113566377",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 4,
-        "count": 7,
-        "percentile": 33.3
+        "rank": 20,
+        "count": 29,
+        "percentile": 28.6
       }
     },
     {
@@ -99,9 +275,31 @@
       "slug": "westrac-pty-ltd-63009342572",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 4,
-        "count": 7,
-        "percentile": 33.3
+        "rank": 20,
+        "count": 29,
+        "percentile": 28.6
+      }
+    },
+    {
+      "businessName": "ADECCO HOLDINGS PTY LTD",
+      "abn": "11003652088",
+      "slug": "adecco-holdings-pty-ltd-11003652088",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 22,
+        "count": 29,
+        "percentile": 25
+      }
+    },
+    {
+      "businessName": "AMAZON SUPPORT SERVICES PTY LTD",
+      "abn": "77163823416",
+      "slug": "amazon-support-services-pty-ltd-77163823416",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 29,
+        "percentile": 21.4
       }
     },
     {
@@ -110,9 +308,53 @@
       "slug": "drive-group-corporation-pty-ltd-54660445296",
       "p95PaymentTimeDays": 64,
       "industryP95Position": {
-        "rank": 6,
-        "count": 7,
-        "percentile": 16.7
+        "rank": 24,
+        "count": 29,
+        "percentile": 14.3
+      }
+    },
+    {
+      "businessName": "WILSON PARKING AUSTRALIA 1992 PTY LTD",
+      "abn": "67052475911",
+      "slug": "wilson-parking-australia-1992-pty-ltd-67052475911",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 24,
+        "count": 29,
+        "percentile": 14.3
+      }
+    },
+    {
+      "businessName": "PBE RUTHERFORD MINING PTY LTD",
+      "abn": "73622492826",
+      "slug": "pbe-rutherford-mining-pty-ltd-73622492826",
+      "p95PaymentTimeDays": 68,
+      "industryP95Position": {
+        "rank": 26,
+        "count": 29,
+        "percentile": 10.7
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN BEARINGS CORPORATION PTY LTD",
+      "abn": "15139918013",
+      "slug": "australian-bearings-corporation-pty-ltd-15139918013",
+      "p95PaymentTimeDays": 70,
+      "industryP95Position": {
+        "rank": 27,
+        "count": 29,
+        "percentile": 7.1
+      }
+    },
+    {
+      "businessName": "GROSVENOR ENGINEERING GROUP PTY LTD",
+      "abn": "12003608795",
+      "slug": "grosvenor-engineering-group-pty-ltd-12003608795",
+      "p95PaymentTimeDays": 77,
+      "industryP95Position": {
+        "rank": 28,
+        "count": 29,
+        "percentile": 3.6
       }
     },
     {
@@ -121,8 +363,8 @@
       "slug": "murray-engineering-pty-ltd-21119603655",
       "p95PaymentTimeDays": 79,
       "industryP95Position": {
-        "rank": 7,
-        "count": 7,
+        "rank": 29,
+        "count": 29,
         "percentile": 0
       }
     }

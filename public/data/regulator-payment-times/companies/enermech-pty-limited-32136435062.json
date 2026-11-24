@@ -1,0 +1,140 @@
+{
+  "slug": "enermech-pty-limited-32136435062",
+  "businessName": "EnerMech Pty Limited",
+  "abn": "32136435062",
+  "acnArbn": "136435062",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySlug": "professional-scientific-and-technical-services",
+  "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015244",
+      "acnArbn": "136435062",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 59.23,
+      "medianPaymentTimeDays": 55,
+      "p80PaymentTimeDays": 79,
+      "p95PaymentTimeDays": 120,
+      "payments30DaysOrLess": 14.91,
+      "payments31To60Days": 44.24,
+      "paymentsMoreThan60Days": 40.86,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2723,
+        "count": 2794,
+        "percentile": 2.2
+      },
+      "industryP95Position": {
+        "rank": 204,
+        "count": 219,
+        "percentile": 6
+      }
+    },
+    {
+      "reportId": "PTR20015241",
+      "acnArbn": "136435062",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 55.78,
+      "medianPaymentTimeDays": 53,
+      "p80PaymentTimeDays": 73,
+      "p95PaymentTimeDays": 100,
+      "payments30DaysOrLess": 16.3,
+      "payments31To60Days": 48.85,
+      "paymentsMoreThan60Days": 34.84,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2995,
+        "count": 3151,
+        "percentile": 4.8
+      },
+      "industryP95Position": {
+        "rank": 215,
+        "count": 241,
+        "percentile": 10.4
+      }
+    },
+    {
+      "reportId": "PTR20015240",
+      "acnArbn": "136435062",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 57.59,
+      "medianPaymentTimeDays": 55,
+      "p80PaymentTimeDays": 77,
+      "p95PaymentTimeDays": 107,
+      "payments30DaysOrLess": 17.63,
+      "payments31To60Days": 41.72,
+      "paymentsMoreThan60Days": 40.65,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2901,
+        "count": 3052,
+        "percentile": 4.9
+      },
+      "industryP95Position": {
+        "rank": 210,
+        "count": 235,
+        "percentile": 9.8
+      }
+    },
+    {
+      "reportId": "PTR20014165",
+      "acnArbn": "136435062",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 65.98,
+      "medianPaymentTimeDays": 62,
+      "p80PaymentTimeDays": 90,
+      "p95PaymentTimeDays": 118,
+      "payments30DaysOrLess": 13.62,
+      "payments31To60Days": 32.48,
+      "paymentsMoreThan60Days": 53.9,
+      "industrySubdivision": "Professional, scientific and technical services (except computer system design and related services)",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 2552,
+        "count": 2639,
+        "percentile": 3.2
+      },
+      "industryP95Position": {
+        "rank": 170,
+        "count": 183,
+        "percentile": 7.1
+      }
+    }
+  ]
+}

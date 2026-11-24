@@ -6,8 +6,40 @@
   "industryDivision": "Construction",
   "industrySlug": "construction",
   "industrySubdivision": "Construction services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20015019",
+      "acnArbn": "618480381",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 28.55,
+      "medianPaymentTimeDays": 32,
+      "p80PaymentTimeDays": 46,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 48.11,
+      "payments31To60Days": 47.96,
+      "paymentsMoreThan60Days": 3.93,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1717,
+        "count": 2794,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 146,
+        "count": 270,
+        "percentile": 43.9
+      }
+    },
     {
       "reportId": "PTR20010570",
       "acnArbn": "618480381",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 3028,
-        "count": 3050,
+        "rank": 3127,
+        "count": 3151,
         "percentile": 0.7
       },
       "industryP95Position": {
-        "rank": 291,
-        "count": 293,
-        "percentile": 0.7
+        "rank": 308,
+        "count": 310,
+        "percentile": 0.6
       }
     }
   ]

@@ -8,9 +8,9 @@
       "reportingCycleName": "July to December 2024",
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
-      "reportingEntityCount": 55,
-      "averageP95PaymentTimeDays": 50.3,
-      "medianP95PaymentTimeDays": 50,
+      "reportingEntityCount": 58,
+      "averageP95PaymentTimeDays": 50.8,
+      "medianP95PaymentTimeDays": 50.5,
       "minimumP95PaymentTimeDays": 6,
       "maximumP95PaymentTimeDays": 100
     },
@@ -19,7 +19,7 @@
       "reportingCycleName": "January to June 2025",
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
-      "reportingEntityCount": 64,
+      "reportingEntityCount": 66,
       "averageP95PaymentTimeDays": 56.7,
       "medianP95PaymentTimeDays": 53,
       "minimumP95PaymentTimeDays": 5,
@@ -30,8 +30,8 @@
       "reportingCycleName": "July to December 2025",
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
-      "reportingEntityCount": 71,
-      "averageP95PaymentTimeDays": 51.7,
+      "reportingEntityCount": 73,
+      "averageP95PaymentTimeDays": 51.6,
       "medianP95PaymentTimeDays": 50,
       "minimumP95PaymentTimeDays": 6,
       "maximumP95PaymentTimeDays": 106
@@ -41,23 +41,56 @@
       "reportingCycleName": "January to June 2026",
       "reportingCycleStartDate": "2026-01-01",
       "reportingCycleEndDate": "2026-06-30",
-      "reportingEntityCount": 19,
-      "averageP95PaymentTimeDays": 49.3,
+      "reportingEntityCount": 67,
+      "averageP95PaymentTimeDays": 54.5,
       "medianP95PaymentTimeDays": 52,
-      "minimumP95PaymentTimeDays": 10,
-      "maximumP95PaymentTimeDays": 83
+      "minimumP95PaymentTimeDays": 3,
+      "maximumP95PaymentTimeDays": 127
     }
   ],
   "companies": [
+    {
+      "businessName": "The Trustee for Logos Australian Logistics Venture Trust",
+      "abn": "68259801426",
+      "slug": "the-trustee-for-logos-australian-logistics-venture-trust-68259801426",
+      "p95PaymentTimeDays": 3,
+      "industryP95Position": {
+        "rank": 1,
+        "count": 67,
+        "percentile": 100
+      }
+    },
+    {
+      "businessName": "DEFENCE HOUSING AUSTRALIA",
+      "abn": "72968504934",
+      "slug": "defence-housing-australia-72968504934",
+      "p95PaymentTimeDays": 4,
+      "industryP95Position": {
+        "rank": 2,
+        "count": 67,
+        "percentile": 98.5
+      }
+    },
     {
       "businessName": "NORGAP PTY. LIMITED",
       "abn": "34008553955",
       "slug": "norgap-pty-limited-34008553955",
       "p95PaymentTimeDays": 10,
       "industryP95Position": {
-        "rank": 1,
-        "count": 19,
-        "percentile": 100
+        "rank": 3,
+        "count": 67,
+        "percentile": 97
+      }
+    },
+    {
+      "businessName": "ZASHVIN PTY. LTD.",
+      "abn": "80010980015",
+      "slug": "zashvin-pty-ltd-80010980015",
+      "p95PaymentTimeDays": 13,
+      "industryP95Position": {
+        "rank": 4,
+        "count": 67,
+        "percentile": 95.5
       }
     },
     {
@@ -66,9 +99,75 @@
       "slug": "folkestone-limited-21004715226",
       "p95PaymentTimeDays": 23,
       "industryP95Position": {
-        "rank": 2,
-        "count": 19,
-        "percentile": 94.4
+        "rank": 5,
+        "count": 67,
+        "percentile": 92.4
+      }
+    },
+    {
+      "businessName": "REGION OPERATIONS PTY LTD",
+      "abn": "83160890433",
+      "slug": "region-operations-pty-ltd-83160890433",
+      "p95PaymentTimeDays": 23,
+      "industryP95Position": {
+        "rank": 5,
+        "count": 67,
+        "percentile": 92.4
+      }
+    },
+    {
+      "businessName": "Suburban Land Agency",
+      "abn": "27105505367",
+      "slug": "suburban-land-agency-27105505367",
+      "p95PaymentTimeDays": 26,
+      "industryP95Position": {
+        "rank": 7,
+        "count": 67,
+        "percentile": 90.9
+      }
+    },
+    {
+      "businessName": "SILVERCHEF HOLDCO PTY LTD",
+      "abn": "48691295388",
+      "slug": "silverchef-holdco-pty-ltd-48691295388",
+      "p95PaymentTimeDays": 28,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 67,
+        "percentile": 87.9
+      }
+    },
+    {
+      "businessName": "THE TRUSTEE FOR REGION RETAIL TRUST",
+      "abn": "78520701272",
+      "slug": "the-trustee-for-region-retail-trust-78520701272",
+      "p95PaymentTimeDays": 28,
+      "industryP95Position": {
+        "rank": 8,
+        "count": 67,
+        "percentile": 87.9
+      }
+    },
+    {
+      "businessName": "LEVANDE PTY LTD",
+      "abn": "80087648691",
+      "slug": "levande-pty-ltd-80087648691",
+      "p95PaymentTimeDays": 29,
+      "industryP95Position": {
+        "rank": 10,
+        "count": 67,
+        "percentile": 86.4
+      }
+    },
+    {
+      "businessName": "SANDRAN HOLDINGS PTY. LIMITED",
+      "abn": "91002235725",
+      "slug": "sandran-holdings-pty-limited-91002235725",
+      "p95PaymentTimeDays": 30,
+      "industryP95Position": {
+        "rank": 11,
+        "count": 67,
+        "percentile": 81.8
       }
     },
     {
@@ -77,9 +176,9 @@
       "slug": "servcorp-limited-97089222506",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 3,
-        "count": 19,
-        "percentile": 83.3
+        "rank": 11,
+        "count": 67,
+        "percentile": 81.8
       }
     },
     {
@@ -88,9 +187,31 @@
       "slug": "the-trustee-for-keppel-reit-australia-trust-76971120912",
       "p95PaymentTimeDays": 30,
       "industryP95Position": {
-        "rank": 3,
-        "count": 19,
-        "percentile": 83.3
+        "rank": 11,
+        "count": 67,
+        "percentile": 81.8
+      }
+    },
+    {
+      "businessName": "KENNARDS HIRE PTY LIMITED",
+      "abn": "69001740727",
+      "slug": "kennards-hire-pty-limited-69001740727",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 67,
+        "percentile": 74.2
+      }
+    },
+    {
+      "businessName": "LEWIS LAND HOLDINGS PTY LIMITED",
+      "abn": "68008522496",
+      "slug": "lewis-land-holdings-pty-limited-68008522496",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 67,
+        "percentile": 74.2
       }
     },
     {
@@ -99,9 +220,20 @@
       "slug": "opteon-group-holdings-limited-20616574755",
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
-        "rank": 5,
-        "count": 19,
-        "percentile": 72.2
+        "rank": 14,
+        "count": 67,
+        "percentile": 74.2
+      }
+    },
+    {
+      "businessName": "THE TRUSTEE FOR DEXUS OPERATIONS TRUST",
+      "abn": "69645176383",
+      "slug": "the-trustee-for-dexus-operations-trust-69645176383",
+      "p95PaymentTimeDays": 31,
+      "industryP95Position": {
+        "rank": 14,
+        "count": 67,
+        "percentile": 74.2
       }
     },
     {
@@ -110,9 +242,42 @@
       "slug": "waypoint-reit-limited-35612986517",
       "p95PaymentTimeDays": 31,
       "industryP95Position": {
-        "rank": 5,
-        "count": 19,
-        "percentile": 72.2
+        "rank": 14,
+        "count": 67,
+        "percentile": 74.2
+      }
+    },
+    {
+      "businessName": "ASSEMBLE HOLDCO 1 PTY LTD",
+      "abn": "51638649457",
+      "slug": "assemble-holdco-1-pty-ltd-51638649457",
+      "p95PaymentTimeDays": 32,
+      "industryP95Position": {
+        "rank": 19,
+        "count": 67,
+        "percentile": 72.7
+      }
+    },
+    {
+      "businessName": "GROUP ADMINISTRATION AUSTRALIA PTY LTD",
+      "abn": "30010374731",
+      "slug": "group-administration-australia-pty-ltd-30010374731",
+      "p95PaymentTimeDays": 33,
+      "industryP95Position": {
+        "rank": 20,
+        "count": 67,
+        "percentile": 71.2
+      }
+    },
+    {
+      "businessName": "AURORA TOPCO PTY LTD",
+      "abn": "78692924806",
+      "slug": "aurora-topco-pty-ltd-78692924806",
+      "p95PaymentTimeDays": 34,
+      "industryP95Position": {
+        "rank": 21,
+        "count": 67,
+        "percentile": 69.7
       }
     },
     {
@@ -121,9 +286,53 @@
       "slug": "the-trustee-for-bwp-trust-18446483705",
       "p95PaymentTimeDays": 36,
       "industryP95Position": {
-        "rank": 7,
-        "count": 19,
+        "rank": 22,
+        "count": 67,
+        "percentile": 68.2
+      }
+    },
+    {
+      "businessName": "AOYUAN PROPERTY GROUP (AUSTRALIA) PTY LTD",
+      "abn": "97600594125",
+      "slug": "aoyuan-property-group-australia-pty-ltd-97600594125",
+      "p95PaymentTimeDays": 38,
+      "industryP95Position": {
+        "rank": 23,
+        "count": 67,
         "percentile": 66.7
+      }
+    },
+    {
+      "businessName": "CEDAR WOODS PROPERTIES LIMITED",
+      "abn": "47009259081",
+      "slug": "cedar-woods-properties-limited-47009259081",
+      "p95PaymentTimeDays": 39,
+      "industryP95Position": {
+        "rank": 24,
+        "count": 67,
+        "percentile": 65.2
+      }
+    },
+    {
+      "businessName": "HOMETOWN AUSTRALIA HOLDINGS PTY LTD",
+      "abn": "35614528746",
+      "slug": "hometown-australia-holdings-pty-ltd-35614528746",
+      "p95PaymentTimeDays": 40,
+      "industryP95Position": {
+        "rank": 25,
+        "count": 67,
+        "percentile": 63.6
+      }
+    },
+    {
+      "businessName": "AUSTRALIAN NAVAL INFRASTRUCTURE PTY LTD",
+      "abn": "45051762639",
+      "slug": "australian-naval-infrastructure-pty-ltd-45051762639",
+      "p95PaymentTimeDays": 42,
+      "industryP95Position": {
+        "rank": 26,
+        "count": 67,
+        "percentile": 62.1
       }
     },
     {
@@ -132,9 +341,9 @@
       "slug": "ascott-international-management-australia-pty-ltd-20078223186",
       "p95PaymentTimeDays": 45,
       "industryP95Position": {
-        "rank": 8,
-        "count": 19,
-        "percentile": 55.6
+        "rank": 27,
+        "count": 67,
+        "percentile": 59.1
       }
     },
     {
@@ -143,9 +352,64 @@
       "slug": "prudential-investment-company-of-australia-pty-ltd-84004266817",
       "p95PaymentTimeDays": 45,
       "industryP95Position": {
-        "rank": 8,
-        "count": 19,
-        "percentile": 55.6
+        "rank": 27,
+        "count": 67,
+        "percentile": 59.1
+      }
+    },
+    {
+      "businessName": "UNITED RENTALS ASIA PACIFIC HOLDINGS PTY LTD",
+      "abn": "28620127791",
+      "slug": "united-rentals-asia-pacific-holdings-pty-ltd-28620127791",
+      "p95PaymentTimeDays": 47,
+      "industryP95Position": {
+        "rank": 29,
+        "count": 67,
+        "percentile": 57.6
+      }
+    },
+    {
+      "businessName": "NATIONAL STORAGE HOLDINGS LIMITED",
+      "abn": "38166572845",
+      "slug": "national-storage-holdings-limited-38166572845",
+      "p95PaymentTimeDays": 48,
+      "industryP95Position": {
+        "rank": 30,
+        "count": 67,
+        "percentile": 56.1
+      }
+    },
+    {
+      "businessName": "ESR REAL ESTATE (AUSTRALIA) PTY LTD",
+      "abn": "64625761962",
+      "slug": "esr-real-estate-australia-pty-ltd-64625761962",
+      "p95PaymentTimeDays": 49,
+      "industryP95Position": {
+        "rank": 31,
+        "count": 67,
+        "percentile": 54.5
+      }
+    },
+    {
+      "businessName": "LAOP HOLDCO PTY LTD",
+      "abn": "39673500377",
+      "slug": "laop-holdco-pty-ltd-39673500377",
+      "p95PaymentTimeDays": 50,
+      "industryP95Position": {
+        "rank": 32,
+        "count": 67,
+        "percentile": 53
+      }
+    },
+    {
+      "businessName": "HMC DIGITAL INFRASTRUCTURE LTD",
+      "abn": "64682024924",
+      "slug": "hmc-digital-infrastructure-ltd-64682024924",
+      "p95PaymentTimeDays": 51,
+      "industryP95Position": {
+        "rank": 33,
+        "count": 67,
+        "percentile": 51.5
       }
     },
     {
@@ -154,8 +418,8 @@
       "slug": "national-pump-and-energy-pty-ltd-83098812492",
       "p95PaymentTimeDays": 52,
       "industryP95Position": {
-        "rank": 10,
-        "count": 19,
+        "rank": 34,
+        "count": 67,
         "percentile": 50
       }
     },
@@ -165,9 +429,9 @@
       "slug": "australian-motor-group-pty-limited-67095047902",
       "p95PaymentTimeDays": 53,
       "industryP95Position": {
-        "rank": 11,
-        "count": 19,
-        "percentile": 38.9
+        "rank": 35,
+        "count": 67,
+        "percentile": 47
       }
     },
     {
@@ -176,9 +440,31 @@
       "slug": "cape-bouvard-investments-pty-ltd-17009171402",
       "p95PaymentTimeDays": 53,
       "industryP95Position": {
-        "rank": 11,
-        "count": 19,
-        "percentile": 38.9
+        "rank": 35,
+        "count": 67,
+        "percentile": 47
+      }
+    },
+    {
+      "businessName": "BHCA1 PTY LTD",
+      "abn": "61611057991",
+      "slug": "bhca1-pty-ltd-61611057991",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 37,
+        "count": 67,
+        "percentile": 43.9
+      }
+    },
+    {
+      "businessName": "RURAL FUNDS TRUST",
+      "abn": "58916212858",
+      "slug": "rural-funds-trust-58916212858",
+      "p95PaymentTimeDays": 57,
+      "industryP95Position": {
+        "rank": 37,
+        "count": 67,
+        "percentile": 43.9
       }
     },
     {
@@ -187,9 +473,42 @@
       "slug": "the-trustee-for-osborne-truck-rentals-unit-trust-28356747284",
       "p95PaymentTimeDays": 58,
       "industryP95Position": {
-        "rank": 13,
-        "count": 19,
-        "percentile": 33.3
+        "rank": 39,
+        "count": 67,
+        "percentile": 42.4
+      }
+    },
+    {
+      "businessName": "THE TRUSTEE FOR STACK INFRASTRUCTURE AUSTRALIA TOP UNIT TRUST",
+      "abn": "44815971041",
+      "slug": "the-trustee-for-stack-infrastructure-australia-top-unit-trust-44815971041",
+      "p95PaymentTimeDays": 60,
+      "industryP95Position": {
+        "rank": 40,
+        "count": 67,
+        "percentile": 40.9
+      }
+    },
+    {
+      "businessName": "CLA TRADING PTY LTD",
+      "abn": "81082220399",
+      "slug": "cla-trading-pty-ltd-81082220399",
+      "p95PaymentTimeDays": 62,
+      "industryP95Position": {
+        "rank": 41,
+        "count": 67,
+        "percentile": 39.4
+      }
+    },
+    {
+      "businessName": "TOGA PTY. LTD.",
+      "abn": "27000926947",
+      "slug": "toga-pty-ltd-27000926947",
+      "p95PaymentTimeDays": 63,
+      "industryP95Position": {
+        "rank": 42,
+        "count": 67,
+        "percentile": 37.9
       }
     },
     {
@@ -198,9 +517,42 @@
       "slug": "cbre-australia-pty-limited-47664591682",
       "p95PaymentTimeDays": 64,
       "industryP95Position": {
-        "rank": 14,
-        "count": 19,
-        "percentile": 27.8
+        "rank": 43,
+        "count": 67,
+        "percentile": 34.8
+      }
+    },
+    {
+      "businessName": "SG FLEET GROUP PTY LIMITED",
+      "abn": "40167554574",
+      "slug": "sg-fleet-group-pty-limited-40167554574",
+      "p95PaymentTimeDays": 64,
+      "industryP95Position": {
+        "rank": 43,
+        "count": 67,
+        "percentile": 34.8
+      }
+    },
+    {
+      "businessName": "BROOKFIELD AUSTRALIA MANAGER HOLDINGS PTY LTD",
+      "abn": "79662132185",
+      "slug": "brookfield-australia-manager-holdings-pty-ltd-79662132185",
+      "p95PaymentTimeDays": 65,
+      "industryP95Position": {
+        "rank": 45,
+        "count": 67,
+        "percentile": 31.8
+      }
+    },
+    {
+      "businessName": "LOSCAM HOLDINGS AUSTRALIA PTY LTD",
+      "abn": "46144845867",
+      "slug": "loscam-holdings-australia-pty-ltd-46144845867",
+      "p95PaymentTimeDays": 65,
+      "industryP95Position": {
+        "rank": 45,
+        "count": 67,
+        "percentile": 31.8
       }
     },
     {
@@ -209,9 +561,20 @@
       "slug": "boom-logistics-ltd-28095466961",
       "p95PaymentTimeDays": 66,
       "industryP95Position": {
-        "rank": 15,
-        "count": 19,
-        "percentile": 22.2
+        "rank": 47,
+        "count": 67,
+        "percentile": 30.3
+      }
+    },
+    {
+      "businessName": "DTZ Australia Pty Ltd",
+      "abn": "84106515931",
+      "slug": "dtz-australia-pty-ltd-84106515931",
+      "p95PaymentTimeDays": 67,
+      "industryP95Position": {
+        "rank": 48,
+        "count": 67,
+        "percentile": 28.8
       }
     },
     {
@@ -220,9 +583,53 @@
       "slug": "movigo-pty-ltd-57606409394",
       "p95PaymentTimeDays": 68,
       "industryP95Position": {
-        "rank": 16,
-        "count": 19,
-        "percentile": 16.7
+        "rank": 49,
+        "count": 67,
+        "percentile": 27.3
+      }
+    },
+    {
+      "businessName": "Knight Frank Australia Holdings Pty Ltd",
+      "abn": "28114923938",
+      "slug": "knight-frank-australia-holdings-pty-ltd-28114923938",
+      "p95PaymentTimeDays": 69,
+      "industryP95Position": {
+        "rank": 50,
+        "count": 67,
+        "percentile": 25.8
+      }
+    },
+    {
+      "businessName": "COATES GROUP HOLDINGS PTY LIMITED",
+      "abn": "85126069341",
+      "slug": "coates-group-holdings-pty-limited-85126069341",
+      "p95PaymentTimeDays": 71,
+      "industryP95Position": {
+        "rank": 51,
+        "count": 67,
+        "percentile": 22.7
+      }
+    },
+    {
+      "businessName": "The Trustee for Legacy Property Holdings Unit Trust",
+      "abn": "20594184390",
+      "slug": "the-trustee-for-legacy-property-holdings-unit-trust-20594184390",
+      "p95PaymentTimeDays": 71,
+      "industryP95Position": {
+        "rank": 51,
+        "count": 67,
+        "percentile": 22.7
+      }
+    },
+    {
+      "businessName": "DTZ AUS HOLDCO PTY LTD",
+      "abn": "36602106936",
+      "slug": "dtz-aus-holdco-pty-ltd-36602106936",
+      "p95PaymentTimeDays": 73,
+      "industryP95Position": {
+        "rank": 53,
+        "count": 67,
+        "percentile": 21.2
       }
     },
     {
@@ -231,9 +638,42 @@
       "slug": "bifm-aus-holdings-pty-ltd-16632468109",
       "p95PaymentTimeDays": 75,
       "industryP95Position": {
-        "rank": 17,
-        "count": 19,
-        "percentile": 11.1
+        "rank": 54,
+        "count": 67,
+        "percentile": 18.2
+      }
+    },
+    {
+      "businessName": "COLLIERS INTERNATIONAL HOLDINGS (AUSTRALIA) LIMITED",
+      "abn": "65008178238",
+      "slug": "colliers-international-holdings-australia-limited-65008178238",
+      "p95PaymentTimeDays": 75,
+      "industryP95Position": {
+        "rank": 54,
+        "count": 67,
+        "percentile": 18.2
+      }
+    },
+    {
+      "businessName": "Aggreko Australia Pty Ltd",
+      "abn": "66001991457",
+      "slug": "aggreko-australia-pty-ltd-66001991457",
+      "p95PaymentTimeDays": 77,
+      "industryP95Position": {
+        "rank": 56,
+        "count": 67,
+        "percentile": 16.7
+      }
+    },
+    {
+      "businessName": "LPI (AUSTRALIA) HOLDINGS PTY LTD",
+      "abn": "81084042473",
+      "slug": "lpi-australia-holdings-pty-ltd-81084042473",
+      "p95PaymentTimeDays": 82,
+      "industryP95Position": {
+        "rank": 57,
+        "count": 67,
+        "percentile": 15.2
       }
     },
     {
@@ -242,9 +682,9 @@
       "slug": "marquis-holdco-pty-ltd-71670403059",
       "p95PaymentTimeDays": 83,
       "industryP95Position": {
-        "rank": 18,
-        "count": 19,
-        "percentile": 0
+        "rank": 58,
+        "count": 67,
+        "percentile": 12.1
       }
     },
     {
@@ -253,8 +693,96 @@
       "slug": "tutt-bryant-group-limited-89009242675",
       "p95PaymentTimeDays": 83,
       "industryP95Position": {
-        "rank": 18,
-        "count": 19,
+        "rank": 58,
+        "count": 67,
+        "percentile": 12.1
+      }
+    },
+    {
+      "businessName": "The Trustee for IFM Real Estate Core Fund No. 1",
+      "abn": "15421756611",
+      "slug": "the-trustee-for-ifm-real-estate-core-fund-no-1-15421756611",
+      "p95PaymentTimeDays": 90,
+      "industryP95Position": {
+        "rank": 60,
+        "count": 67,
+        "percentile": 10.6
+      }
+    },
+    {
+      "businessName": "BORG FLEET MANAGEMENT PTY LIMITED",
+      "abn": "11070099213",
+      "slug": "borg-fleet-management-pty-limited-11070099213",
+      "p95PaymentTimeDays": 92,
+      "industryP95Position": {
+        "rank": 61,
+        "count": 67,
+        "percentile": 9.1
+      }
+    },
+    {
+      "businessName": "THE TRUSTEE FOR IFM RETAIL AUSTRALIA PROPERTY TRUST NO. 1",
+      "abn": "19915864713",
+      "slug": "the-trustee-for-ifm-retail-australia-property-trust-no-1-19915864713",
+      "p95PaymentTimeDays": 95,
+      "industryP95Position": {
+        "rank": 62,
+        "count": 67,
+        "percentile": 7.6
+      }
+    },
+    {
+      "businessName": "SAVILLS (AUST) HOLDINGS PTY LIMITED",
+      "abn": "49059047371",
+      "slug": "savills-aust-holdings-pty-limited-49059047371",
+      "p95PaymentTimeDays": 102,
+      "industryP95Position": {
+        "rank": 63,
+        "count": 67,
+        "percentile": 6.1
+      }
+    },
+    {
+      "businessName": "CHASE BUILDING GROUP HOLDINGS CANBERRA PTY LIMITED",
+      "abn": "11165179902",
+      "slug": "chase-building-group-holdings-canberra-pty-limited-11165179902",
+      "p95PaymentTimeDays": 109,
+      "industryP95Position": {
+        "rank": 64,
+        "count": 67,
+        "percentile": 4.5
+      }
+    },
+    {
+      "businessName": "BROOKS HIRE SERVICE PTY LTD",
+      "abn": "20008975988",
+      "slug": "brooks-hire-service-pty-ltd-20008975988",
+      "p95PaymentTimeDays": 118,
+      "industryP95Position": {
+        "rank": 65,
+        "count": 67,
+        "percentile": 3
+      }
+    },
+    {
+      "businessName": "THE TRUSTEE FOR THE ARB ASCOTOWN TRUST & THE TRUSTEE FOR THE KALKALLO N0.1 TRUST & THE TRUSTEE FOR THE MRB ASCOTOWN TRUST",
+      "abn": "49640294056",
+      "slug": "the-trustee-for-the-arb-ascotown-trust-and-the-trustee-for-the-kalkallo-n0-1-trust-and-the-trustee-for-the-mrb-ascotown-trust-49640294056",
+      "p95PaymentTimeDays": 123,
+      "industryP95Position": {
+        "rank": 66,
+        "count": 67,
+        "percentile": 1.5
+      }
+    },
+    {
+      "businessName": "The Trustee for The North Woods Northcote Class Trust",
+      "abn": "59819030127",
+      "slug": "the-trustee-for-the-north-woods-northcote-class-trust-59819030127",
+      "p95PaymentTimeDays": 127,
+      "industryP95Position": {
+        "rank": 67,
+        "count": 67,
         "percentile": 0
       }
     }

@@ -6,8 +6,40 @@
   "industryDivision": "Health Care and Social Assistance",
   "industrySlug": "health-care-and-social-assistance",
   "industrySubdivision": "Medical and other health care services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20015202",
+      "acnArbn": "147231561",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": true,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 58.15,
+      "medianPaymentTimeDays": 45,
+      "p80PaymentTimeDays": 97,
+      "p95PaymentTimeDays": 127,
+      "payments30DaysOrLess": 32.05,
+      "payments31To60Days": 31.52,
+      "paymentsMoreThan60Days": 36.43,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2748,
+        "count": 2794,
+        "percentile": 1.5
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 103,
+        "percentile": 2
+      }
+    },
     {
       "reportId": "PTR20009480",
       "acnArbn": "147231561",
@@ -30,8 +62,8 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2934,
-        "count": 3050,
+        "rank": 3032,
+        "count": 3151,
         "percentile": 3.6
       },
       "industryP95Position": {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 2437,
-        "count": 2565,
-        "percentile": 4.8
+        "rank": 2509,
+        "count": 2639,
+        "percentile": 4.7
       },
       "industryP95Position": {
-        "rank": 91,
-        "count": 98,
-        "percentile": 7.2
+        "rank": 92,
+        "count": 99,
+        "percentile": 7.1
       }
     }
   ]

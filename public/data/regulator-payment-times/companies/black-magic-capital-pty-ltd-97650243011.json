@@ -1,0 +1,44 @@
+{
+  "slug": "black-magic-capital-pty-ltd-97650243011",
+  "businessName": "BLACK MAGIC CAPITAL PTY LTD",
+  "abn": "97650243011",
+  "acnArbn": "650243011",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySlug": "financial-and-insurance-services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2025-12-30",
+  "reports": [
+    {
+      "reportId": "PTR20013679",
+      "acnArbn": "650243011",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9,
+      "medianPaymentTimeDays": 9,
+      "p80PaymentTimeDays": 9,
+      "p95PaymentTimeDays": 9,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-09-21",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 36,
+        "count": 3151,
+        "percentile": 98.8
+      },
+      "industryP95Position": {
+        "rank": 13,
+        "count": 389,
+        "percentile": 96.4
+      }
+    }
+  ]
+}

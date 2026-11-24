@@ -6,8 +6,40 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Basic chemical and chemical product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20013533",
+      "acnArbn": "657936206",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 65.42,
+      "payments31To60Days": 28.66,
+      "paymentsMoreThan60Days": 5.92,
+      "industrySubdivision": "Basic chemical and chemical product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-20",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1957,
+        "count": 2794,
+        "percentile": 28.1
+      },
+      "industryP95Position": {
+        "rank": 184,
+        "count": 359,
+        "percentile": 46.9
+      }
+    },
     {
       "reportId": "PTR20008408",
       "acnArbn": "657936206",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1921,
-        "count": 3050,
-        "percentile": 34.2
+        "rank": 1993,
+        "count": 3151,
+        "percentile": 34
       },
       "industryP95Position": {
-        "rank": 176,
-        "count": 409,
-        "percentile": 53.7
+        "rank": 183,
+        "count": 424,
+        "percentile": 53.2
       }
     },
     {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 1874,
-        "count": 2977,
+        "rank": 1923,
+        "count": 3052,
         "percentile": 35.2
       },
       "industryP95Position": {
-        "rank": 177,
-        "count": 395,
-        "percentile": 54.6
+        "rank": 186,
+        "count": 407,
+        "percentile": 53.7
       }
     }
   ]

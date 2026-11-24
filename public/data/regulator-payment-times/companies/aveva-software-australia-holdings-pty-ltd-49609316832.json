@@ -1,0 +1,108 @@
+{
+  "slug": "aveva-software-australia-holdings-pty-ltd-49609316832",
+  "businessName": "AVEVA SOFTWARE AUSTRALIA HOLDINGS PTY LTD",
+  "abn": "49609316832",
+  "acnArbn": "609316832",
+  "industryDivision": "Professional, Scientific and Technical Services",
+  "industrySlug": "professional-scientific-and-technical-services",
+  "industrySubdivision": "Computer system design and related services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20013497",
+      "acnArbn": "609316832",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 35.3,
+      "medianPaymentTimeDays": 24,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 105,
+      "payments30DaysOrLess": 69.77,
+      "payments31To60Days": 13.95,
+      "paymentsMoreThan60Days": 16.28,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 2682,
+        "count": 2794,
+        "percentile": 3.9
+      },
+      "industryP95Position": {
+        "rank": 198,
+        "count": 219,
+        "percentile": 9.2
+      }
+    },
+    {
+      "reportId": "PTR20013491",
+      "acnArbn": "609316832",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 31,
+      "medianPaymentTimeDays": 27,
+      "p80PaymentTimeDays": 40,
+      "p95PaymentTimeDays": 76,
+      "payments30DaysOrLess": 77.78,
+      "payments31To60Days": 11.11,
+      "paymentsMoreThan60Days": 11.11,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 2655,
+        "count": 3151,
+        "percentile": 15.2
+      },
+      "industryP95Position": {
+        "rank": 191,
+        "count": 241,
+        "percentile": 20.8
+      }
+    },
+    {
+      "reportId": "PTR20013445",
+      "acnArbn": "609316832",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 37.82,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 65,
+      "p95PaymentTimeDays": 78,
+      "payments30DaysOrLess": 45.45,
+      "payments31To60Days": 27.27,
+      "paymentsMoreThan60Days": 27.27,
+      "industrySubdivision": "Computer system design and related services",
+      "industryDivision": "Professional, Scientific and Technical Services",
+      "submittedDate": "2026-09-17",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2517,
+        "count": 3052,
+        "percentile": 16.8
+      },
+      "industryP95Position": {
+        "rank": 177,
+        "count": 235,
+        "percentile": 23.9
+      }
+    }
+  ]
+}

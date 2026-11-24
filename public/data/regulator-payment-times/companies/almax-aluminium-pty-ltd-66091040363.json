@@ -1,0 +1,44 @@
+{
+  "slug": "almax-aluminium-pty-ltd-66091040363",
+  "businessName": "ALMAX ALUMINIUM PTY LTD",
+  "abn": "66091040363",
+  "acnArbn": "091040363",
+  "industryDivision": "Manufacturing",
+  "industrySlug": "manufacturing",
+  "industrySubdivision": "Primary metal and metal product mfg",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014385",
+      "acnArbn": "091040363",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 31,
+      "p80PaymentTimeDays": 32,
+      "p95PaymentTimeDays": 33,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Primary metal and metal product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-27",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 590,
+        "count": 2794,
+        "percentile": 77.9
+      },
+      "industryP95Position": {
+        "rank": 27,
+        "count": 359,
+        "percentile": 92.7
+      }
+    }
+  ]
+}

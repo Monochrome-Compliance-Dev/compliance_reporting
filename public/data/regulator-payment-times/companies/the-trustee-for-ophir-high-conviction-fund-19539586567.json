@@ -1,0 +1,44 @@
+{
+  "slug": "the-trustee-for-ophir-high-conviction-fund-19539586567",
+  "businessName": "The Trustee for Ophir High Conviction Fund",
+  "abn": "19539586567",
+  "acnArbn": "",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySlug": "financial-and-insurance-services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014952",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 30,
+      "medianPaymentTimeDays": 30,
+      "p80PaymentTimeDays": 30,
+      "p95PaymentTimeDays": 30,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 393,
+        "count": 2794,
+        "percentile": 82.6
+      },
+      "industryP95Position": {
+        "rank": 143,
+        "count": 369,
+        "percentile": 56.5
+      }
+    }
+  ]
+}

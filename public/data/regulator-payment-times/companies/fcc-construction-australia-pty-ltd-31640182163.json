@@ -1,0 +1,44 @@
+{
+  "slug": "fcc-construction-australia-pty-ltd-31640182163",
+  "businessName": "FCC CONSTRUCTION AUSTRALIA PTY LTD",
+  "abn": "31640182163",
+  "acnArbn": "640182163",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Construction services",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20015313",
+      "acnArbn": "640182163",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 20,
+      "medianPaymentTimeDays": 10.09,
+      "p80PaymentTimeDays": 28,
+      "p95PaymentTimeDays": 43,
+      "payments30DaysOrLess": 91.6,
+      "payments31To60Days": 7.4,
+      "paymentsMoreThan60Days": 0.9,
+      "industrySubdivision": "Construction services",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-29",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 910,
+        "count": 2794,
+        "percentile": 65.7
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 270,
+        "percentile": 81
+      }
+    }
+  ]
+}

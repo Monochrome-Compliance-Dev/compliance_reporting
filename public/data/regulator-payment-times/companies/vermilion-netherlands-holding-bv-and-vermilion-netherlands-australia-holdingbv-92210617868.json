@@ -6,8 +6,40 @@
   "industryDivision": "Mining",
   "industrySlug": "mining",
   "industrySubdivision": "Oil and gas extraction",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20013240",
+      "acnArbn": "",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 33.5,
+      "medianPaymentTimeDays": 29,
+      "p80PaymentTimeDays": 35,
+      "p95PaymentTimeDays": 59,
+      "payments30DaysOrLess": 72,
+      "payments31To60Days": 23,
+      "paymentsMoreThan60Days": 5,
+      "industrySubdivision": "Oil and gas extraction",
+      "industryDivision": "Mining",
+      "submittedDate": "2026-09-15",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1717,
+        "count": 2794,
+        "percentile": 36.7
+      },
+      "industryP95Position": {
+        "rank": 101,
+        "count": 166,
+        "percentile": 37.6
+      }
+    },
     {
       "reportId": "PTR20012734",
       "acnArbn": "",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2086,
-        "count": 3050,
-        "percentile": 30
+        "rank": 2160,
+        "count": 3151,
+        "percentile": 29.9
       },
       "industryP95Position": {
-        "rank": 141,
-        "count": 193,
-        "percentile": 27.1
+        "rank": 142,
+        "count": 195,
+        "percentile": 27.3
       }
     },
     {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2077,
-        "count": 2977,
-        "percentile": 29.3
+        "rank": 2132,
+        "count": 3052,
+        "percentile": 29.2
       },
       "industryP95Position": {
-        "rank": 133,
-        "count": 187,
-        "percentile": 28.5
+        "rank": 135,
+        "count": 190,
+        "percentile": 28.6
       }
     },
     {
@@ -94,14 +126,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 1065,
-        "count": 2565,
-        "percentile": 57.1
+        "rank": 1100,
+        "count": 2639,
+        "percentile": 56.9
       },
       "industryP95Position": {
-        "rank": 77,
-        "count": 173,
-        "percentile": 54.7
+        "rank": 79,
+        "count": 176,
+        "percentile": 54.3
       }
     }
   ]

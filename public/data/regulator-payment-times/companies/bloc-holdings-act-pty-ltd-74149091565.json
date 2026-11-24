@@ -1,0 +1,76 @@
+{
+  "slug": "bloc-holdings-act-pty-ltd-74149091565",
+  "businessName": "BLOC HOLDINGS (ACT) PTY LTD",
+  "abn": "74149091565",
+  "acnArbn": "149091565",
+  "industryDivision": "Construction",
+  "industrySlug": "construction",
+  "industrySubdivision": "Building construction",
+  "latestReportingPeriodEndDate": "2025-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014068",
+      "acnArbn": "149091565",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 40,
+      "medianPaymentTimeDays": 36,
+      "p80PaymentTimeDays": 52,
+      "p95PaymentTimeDays": 70,
+      "payments30DaysOrLess": 67,
+      "payments31To60Days": 31,
+      "paymentsMoreThan60Days": 2,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 2288,
+        "count": 3052,
+        "percentile": 23.8
+      },
+      "industryP95Position": {
+        "rank": 215,
+        "count": 292,
+        "percentile": 24.4
+      }
+    },
+    {
+      "reportId": "PTR20011354",
+      "acnArbn": "149091565",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 36.22,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 49,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 75.38,
+      "payments31To60Days": 22.81,
+      "paymentsMoreThan60Days": 1.81,
+      "industrySubdivision": "Building construction",
+      "industryDivision": "Construction",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1760,
+        "count": 2639,
+        "percentile": 31.8
+      },
+      "industryP95Position": {
+        "rank": 161,
+        "count": 270,
+        "percentile": 37.2
+      }
+    }
+  ]
+}

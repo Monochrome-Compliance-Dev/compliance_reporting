@@ -1,0 +1,140 @@
+{
+  "slug": "innevision-technology-australia-pty-ltd-42609696782",
+  "businessName": "INNEVISION TECHNOLOGY AUSTRALIA PTY. LTD.",
+  "abn": "42609696782",
+  "acnArbn": "609696782",
+  "industryDivision": "Wholesale Trade",
+  "industrySlug": "wholesale-trade",
+  "industrySubdivision": "Machinery and equipment wholesaling",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20013978",
+      "acnArbn": "609696782",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.75,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 13,
+      "p95PaymentTimeDays": 32,
+      "payments30DaysOrLess": 94.74,
+      "payments31To60Days": 5.26,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 547,
+        "count": 2794,
+        "percentile": 78.9
+      },
+      "industryP95Position": {
+        "rank": 49,
+        "count": 394,
+        "percentile": 87
+      }
+    },
+    {
+      "reportId": "PTR20013975",
+      "acnArbn": "609696782",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.13,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 16,
+      "p95PaymentTimeDays": 35,
+      "payments30DaysOrLess": 92.39,
+      "payments31To60Days": 6.52,
+      "paymentsMoreThan60Days": 1.09,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 710,
+        "count": 3151,
+        "percentile": 76.2
+      },
+      "industryP95Position": {
+        "rank": 67,
+        "count": 427,
+        "percentile": 83.3
+      }
+    },
+    {
+      "reportId": "PTR20013974",
+      "acnArbn": "609696782",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 12.1,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 18,
+      "p95PaymentTimeDays": 41,
+      "payments30DaysOrLess": 93.75,
+      "payments31To60Days": 2.5,
+      "paymentsMoreThan60Days": 3.75,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 873,
+        "count": 3052,
+        "percentile": 70.6
+      },
+      "industryP95Position": {
+        "rank": 85,
+        "count": 415,
+        "percentile": 79.5
+      }
+    },
+    {
+      "reportId": "PTR20013967",
+      "acnArbn": "609696782",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 14.51,
+      "medianPaymentTimeDays": 7,
+      "p80PaymentTimeDays": 22,
+      "p95PaymentTimeDays": 57,
+      "payments30DaysOrLess": 90.41,
+      "payments31To60Days": 5.48,
+      "paymentsMoreThan60Days": 4.11,
+      "industrySubdivision": "Machinery and equipment wholesaling",
+      "industryDivision": "Wholesale Trade",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 1365,
+        "count": 2639,
+        "percentile": 46.1
+      },
+      "industryP95Position": {
+        "rank": 138,
+        "count": 342,
+        "percentile": 56.9
+      }
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "slug": "australian-military-bank-ltd-48087649741",
+  "businessName": "AUSTRALIAN MILITARY BANK LTD",
+  "abn": "48087649741",
+  "acnArbn": "087649741",
+  "industryDivision": "Financial and Insurance Services",
+  "industrySlug": "financial-and-insurance-services",
+  "industrySubdivision": "Finance",
+  "latestReportingPeriodEndDate": "2026-06-29",
+  "reports": [
+    {
+      "reportId": "PTR20014024",
+      "acnArbn": "087649741",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.8,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 44,
+        "count": 2794,
+        "percentile": 98.1
+      },
+      "industryP95Position": {
+        "rank": 21,
+        "count": 369,
+        "percentile": 93.2
+      }
+    },
+    {
+      "reportId": "PTR20014033",
+      "acnArbn": "087649741",
+      "reportingPeriodStartDate": "2025-06-30",
+      "reportingPeriodEndDate": "2025-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.9,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2025-H2",
+      "reportingCycleName": "July to December 2025",
+      "reportingCycleStartDate": "2025-07-01",
+      "reportingCycleEndDate": "2025-12-31",
+      "overallP95Position": {
+        "rank": 44,
+        "count": 3151,
+        "percentile": 98.5
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 389,
+        "percentile": 95.4
+      }
+    },
+    {
+      "reportId": "PTR20014036",
+      "acnArbn": "087649741",
+      "reportingPeriodStartDate": "2024-12-31",
+      "reportingPeriodEndDate": "2025-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 10.12,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 11,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2025-H1",
+      "reportingCycleName": "January to June 2025",
+      "reportingCycleStartDate": "2025-01-01",
+      "reportingCycleEndDate": "2025-06-30",
+      "overallP95Position": {
+        "rank": 52,
+        "count": 3052,
+        "percentile": 98.2
+      },
+      "industryP95Position": {
+        "rank": 19,
+        "count": 390,
+        "percentile": 94.9
+      }
+    },
+    {
+      "reportId": "PTR20014039",
+      "acnArbn": "087649741",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 9.38,
+      "medianPaymentTimeDays": 10,
+      "p80PaymentTimeDays": 10,
+      "p95PaymentTimeDays": 11,
+      "payments30DaysOrLess": 100,
+      "payments31To60Days": 0,
+      "paymentsMoreThan60Days": 0,
+      "industrySubdivision": "Finance",
+      "industryDivision": "Financial and Insurance Services",
+      "submittedDate": "2026-09-23",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 52,
+        "count": 2639,
+        "percentile": 97.9
+      },
+      "industryP95Position": {
+        "rank": 23,
+        "count": 358,
+        "percentile": 93.8
+      }
+    }
+  ]
+}

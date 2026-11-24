@@ -6,8 +6,40 @@
   "industryDivision": "Manufacturing",
   "industrySlug": "manufacturing",
   "industrySubdivision": "Food product mfg",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20014914",
+      "acnArbn": "008293007",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 11.92,
+      "medianPaymentTimeDays": 8,
+      "p80PaymentTimeDays": 21,
+      "p95PaymentTimeDays": 39,
+      "payments30DaysOrLess": 90.3,
+      "payments31To60Days": 9.41,
+      "paymentsMoreThan60Days": 0.29,
+      "industrySubdivision": "Food product mfg",
+      "industryDivision": "Manufacturing",
+      "submittedDate": "2026-09-28",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 777,
+        "count": 2794,
+        "percentile": 71.3
+      },
+      "industryP95Position": {
+        "rank": 40,
+        "count": 359,
+        "percentile": 88.5
+      }
+    },
     {
       "reportId": "PTR20008759",
       "acnArbn": "008293007",
@@ -30,14 +62,14 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 1186,
-        "count": 3050,
-        "percentile": 60
+        "rank": 1234,
+        "count": 3151,
+        "percentile": 59.8
       },
       "industryP95Position": {
-        "rank": 60,
-        "count": 409,
-        "percentile": 84.3
+        "rank": 64,
+        "count": 424,
+        "percentile": 83.9
       }
     },
     {
@@ -62,14 +94,14 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 902,
-        "count": 2977,
-        "percentile": 68.5
+        "rank": 929,
+        "count": 3052,
+        "percentile": 68.4
       },
       "industryP95Position": {
-        "rank": 42,
-        "count": 395,
-        "percentile": 89.1
+        "rank": 44,
+        "count": 407,
+        "percentile": 88.9
       }
     },
     {
@@ -94,14 +126,14 @@
       "reportingCycleStartDate": "2024-07-01",
       "reportingCycleEndDate": "2024-12-31",
       "overallP95Position": {
-        "rank": 238,
-        "count": 2565,
-        "percentile": 89.3
+        "rank": 255,
+        "count": 2639,
+        "percentile": 89
       },
       "industryP95Position": {
         "rank": 13,
-        "count": 333,
-        "percentile": 96.4
+        "count": 341,
+        "percentile": 96.5
       }
     }
   ]

@@ -6,8 +6,40 @@
   "industryDivision": "Health Care and Social Assistance",
   "industrySlug": "health-care-and-social-assistance",
   "industrySubdivision": "Medical and other health care services",
-  "latestReportingPeriodEndDate": "2025-12-30",
+  "latestReportingPeriodEndDate": "2026-06-29",
   "reports": [
+    {
+      "reportId": "PTR20014377",
+      "acnArbn": "153829666",
+      "reportingPeriodStartDate": "2025-12-31",
+      "reportingPeriodEndDate": "2026-06-29",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 29,
+      "medianPaymentTimeDays": 23,
+      "p80PaymentTimeDays": 41,
+      "p95PaymentTimeDays": 63,
+      "payments30DaysOrLess": 75.9,
+      "payments31To60Days": 14.8,
+      "paymentsMoreThan60Days": 9.3,
+      "industrySubdivision": "Medical and other health care services",
+      "industryDivision": "Health Care and Social Assistance",
+      "submittedDate": "2026-09-27",
+      "reportingCycleId": "2026-H1",
+      "reportingCycleName": "January to June 2026",
+      "reportingCycleStartDate": "2026-01-01",
+      "reportingCycleEndDate": "2026-06-30",
+      "overallP95Position": {
+        "rank": 1957,
+        "count": 2794,
+        "percentile": 28.1
+      },
+      "industryP95Position": {
+        "rank": 64,
+        "count": 103,
+        "percentile": 34.3
+      }
+    },
     {
       "reportId": "PTR20010229",
       "acnArbn": "153829666",
@@ -30,9 +62,9 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2007,
-        "count": 3050,
-        "percentile": 31.6
+        "rank": 2082,
+        "count": 3151,
+        "percentile": 31.5
       },
       "industryP95Position": {
         "rank": 69,

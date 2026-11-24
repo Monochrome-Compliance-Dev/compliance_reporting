@@ -30,9 +30,9 @@
       "reportingCycleStartDate": "2025-07-01",
       "reportingCycleEndDate": "2025-12-31",
       "overallP95Position": {
-        "rank": 2625,
-        "count": 3050,
-        "percentile": 13.3
+        "rank": 2716,
+        "count": 3151,
+        "percentile": 13.2
       },
       "industryP95Position": {
         "rank": 15,
@@ -62,13 +62,45 @@
       "reportingCycleStartDate": "2025-01-01",
       "reportingCycleEndDate": "2025-06-30",
       "overallP95Position": {
-        "rank": 2902,
-        "count": 2977,
-        "percentile": 2.4
+        "rank": 2980,
+        "count": 3052,
+        "percentile": 2.3
       },
       "industryP95Position": {
         "rank": 16,
         "count": 16,
+        "percentile": 0
+      }
+    },
+    {
+      "reportId": "PTR20013388",
+      "acnArbn": "663533195",
+      "reportingPeriodStartDate": "2024-06-30",
+      "reportingPeriodEndDate": "2024-12-30",
+      "revisedReport": false,
+      "redactedReport": false,
+      "averagePaymentTimeDays": 39.26,
+      "medianPaymentTimeDays": 35,
+      "p80PaymentTimeDays": 56,
+      "p95PaymentTimeDays": 101,
+      "payments30DaysOrLess": 53,
+      "payments31To60Days": 38,
+      "paymentsMoreThan60Days": 10,
+      "industrySubdivision": "Preschool and school education",
+      "industryDivision": "Education and Training",
+      "submittedDate": "2026-09-16",
+      "reportingCycleId": "2024-H2",
+      "reportingCycleName": "July to December 2024",
+      "reportingCycleStartDate": "2024-07-01",
+      "reportingCycleEndDate": "2024-12-31",
+      "overallP95Position": {
+        "rank": 2489,
+        "count": 2639,
+        "percentile": 5.4
+      },
+      "industryP95Position": {
+        "rank": 15,
+        "count": 15,
         "percentile": 0
       }
     }
